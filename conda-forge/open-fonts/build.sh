@@ -1,7 +1,6 @@
 #!/bin/bash
-openfonts="$PREFIX/fonts/open-fonts"
-mkdir -p "$openfonts" || exit 1
+set -euo pipefail
+IFS=$'\n\t'
 
-mv css "$openfonts/" || exit 1
-mv LICENSE "$openfonts/" || exit 1
-mv fonts/* "$openfonts/" || exit 1
+mkdir -p "$PREFIX/fonts"
+mv open-fonts "$PREFIX/fonts/"
