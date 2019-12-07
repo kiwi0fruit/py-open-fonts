@@ -131,6 +131,7 @@ setup(
     name='py-open-fonts',
     version=version + build,
     python_requires='>=3.6',
+    install_requires=['click'],
     description='A collection of beautiful free and open source fonts.',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -147,7 +148,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'open-fonts-css=openfonts.__main__:cli',
+            'open-fonts-css=openfonts.cli:cli',
         ],
     },
     **(dict(

@@ -32,6 +32,9 @@ Usage: open-fonts-css [OPTIONS] [FONTS]
   If none were provided then all fonts definitions from
   $PYTHONPREFIX/fonts/open-fonts/css would be used.
 
+  Note that spaces would be removed from provided font names and CSS files
+  do not contain spaces in their names.  
+
 Options:
   -p, --pref TEXT   Generated CSS would have TEXT as prefix in URL to
                     fonts files (instead of default absolute path as URL).
@@ -55,6 +58,9 @@ def open_fonts_css(*fonts: str, pref: str=None, out: str=None) -> str:
     If none were provided (``fonts`` is ``()``) then all fonts definitions from
     ``$PYTHONPREFIX/fonts/open-fonts/css/`` would be used.
 
+    Note that spaces would be removed from provided font names and CSS files
+    do not contain spaces in their names. 
+
     :param pref:
         Generated CSS would have ``pref`` as prefix in URL to fonts files (instead
         of default absolute path as URL). Like: ``f"{pref}FontName.ttf"``
@@ -62,6 +68,6 @@ def open_fonts_css(*fonts: str, pref: str=None, out: str=None) -> str:
     :param out:
         Save CSS to ``out`` filepath. ``"-"`` or ``None`` mean do nothing.
 
-    :return: CSS source code
+    :return: CSS source code if out is None or '-' else returns ''
     """
 ```
