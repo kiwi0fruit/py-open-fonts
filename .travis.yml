@@ -52,3 +52,4 @@ install:
 script:
   - open-fonts-css -o ./fonts.css
   - open-fonts-css Symbola
+  - open-fonts-css --help
