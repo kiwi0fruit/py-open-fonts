@@ -65,7 +65,8 @@ def open_fonts_css(*fonts: str, pref: str=None, out: str=None) -> str:
     elif out == '':
         raise ValueError('out should not be an empty string')
     if not fonts:
-        fonts = tuple(f[:-4] for f in os.listdir(css_dir) if p.isfile(p.join(css_dir, f)) and f.endswith('.css'))
+        fonts = tuple(f[:-4] for f in os.listdir(css_dir)
+                      if p.isfile(p.join(css_dir, f)) and f.endswith('.css'))
         if not fonts:
             raise PyOpenFontsError(f'*.css files were not found in {css_dir}')
     else:
