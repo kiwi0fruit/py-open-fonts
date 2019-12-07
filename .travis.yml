@@ -50,6 +50,5 @@ install:
 
 # Run test
 script:
-  - test -f "$(dirname "$(dirname "$(which pip)")")/fonts/open-fonts/Symbola.ttf"
   - open-fonts-css -o ./fonts.css
   - open-fonts-css Symbola
