@@ -1,3 +1,5 @@
+from typing import Tuple, Optional as Opt
+import sys
 import os
 import os.path as p
 import sys
@@ -42,7 +44,7 @@ def open_fonts_css(*fonts: str, pref: str=None, out: str=None) -> str:
     :param out:
         Save CSS to ``out`` filepath. ``"-"`` or ``None`` mean do nothing.
 
-    :return: CSS source code if out is None or '-' else returns ''
+    :return: css_source if (out in (None, '-')) else ''
     """
     open_fonts = open_fonts_dir()
     if not p.isdir(open_fonts):
@@ -86,7 +88,7 @@ def open_fonts_css(*fonts: str, pref: str=None, out: str=None) -> str:
     return css_source
 
 
-help_str = """Generates CSS source with @font-face definitions with
+@click.command(help="""Generates CSS source with @font-face definitions with
 absolute paths to fonts files as URL.
 
 Multiple FONTS like FontName can be provided. For example "FontName"
@@ -95,11 +97,7 @@ If none were provided then all fonts definitions from
 $PYTHONPREFIX/fonts/open-fonts/css/ would be used.
 
 Note that spaces would be removed from provided font names and CSS files
-do not contain spaces in their names.
-"""
-
-
-@click.command(help=help_str)
+do not contain spaces in their names.""")
 @click.argument('fonts', nargs=-1, required=False)
 @click.option('-p', '--pref', type=str, default=None,
               help='Generated CSS would have TEXT as prefix in URL to fonts files (instead of '
@@ -107,7 +105,7 @@ do not contain spaces in their names.
                    + 'replacement actually)')
 @click.option('-o', '--out', type=str, default=None,
               help='Save CSS to TEXT filepath. "-" means write to stdout (default behaviour)')
-def cli(fonts, pref, out):
+def cli(fonts: Tuple[str, ...], pref: Opt[str], out: Opt[str]):
     css_source = open_fonts_css(*fonts, pref=pref, out=out)
-    if not css_source:
-        xxx
+    if css_source:
+        sys.stdout.write(css_source)
