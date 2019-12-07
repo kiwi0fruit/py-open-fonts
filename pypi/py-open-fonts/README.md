@@ -22,28 +22,29 @@ pip install py-open-fonts
 ### CLI
 
 ```
-Usage: open-fonts-css [OPTIONS] [FONTS]
+Usage: open-fonts-css [OPTIONS] [FONTS]...
 
-  Generates CSS source with @font-face definitions with absolute paths
-  to fonts files as URL.
+  Generates CSS source with @font-face definitions with absolute paths to
+  fonts files as URL.
 
   Multiple FONTS like FontName can be provided. For example "FontName"
-  argument means using $PYTHONPREFIX/fonts/open-fonts/css/FontName.css
-  If none were provided then all fonts definitions from
-  $PYTHONPREFIX/fonts/open-fonts/css would be used.
+  argument means using $PYTHONPREFIX/fonts/open-fonts/css/FontName.css If
+  none were provided then all fonts definitions from
+  $PYTHONPREFIX/fonts/open-fonts/css/ would be used.
 
   Note that spaces would be removed from provided font names and CSS files
-  do not contain spaces in their names.  
+  do not contain spaces in their names.
 
 Options:
-  -p, --pref TEXT   Generated CSS would have TEXT as prefix in URL to
-                    fonts files (instead of default absolute path as URL).
-                    Like: ${PREFIX}FontName.ttf ("<...>" to "TEXT"
-                    replacement actually)
-  -o, --out TEXT    Save CSS to TEXT filepath. "-" means write to stdout
-                    (default behaviour)
-  --help            Show this message and exit.
+  -p, --pref TEXT  Generated CSS would have TEXT as prefix in URL to fonts
+                   files (instead of default absolute path as URL). Like:
+                   ${PREFIX}FontName.ttf ("<...>" to "TEXT"replacement
+                   actually)
+  -o, --out TEXT   Save CSS to TEXT filepath. "-" means write to stdout
+                   (default behaviour)
+  --help           Show this message and exit.
 ```
+
 
 ### open_fonts_css
 
