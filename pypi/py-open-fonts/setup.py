@@ -34,11 +34,11 @@ conda_version, build = version, ''  # was: version, '.4'
 tmp = 'tmp'
 spec = dict(
     move=[('open-fonts', tmp)], version=conda_version, build=0,
-    hash_='93eee859a6c7147d5214bba964c58ee96b4a565a36d08239f0edd6bc3639b0b0'
+    hash_='dd71544edc2b3d18da0a9c97faf8e4da3a9086ceb6bac0171d5e47fc530a5612'
 )
 # spec = {}.get(platform.system(), spec)
 # URL = 'https://anaconda.org/conda-forge/open-fonts/{version}/download/noarch/open-fonts-{version}-{build}.tar.bz2'.format(**spec)
-URL = 'https://github.com/kiwi0fruit/open-fonts/releases/download/0.4/open-fonts.tar.bz2'
+URL = 'https://github.com/kiwi0fruit/open-fonts/releases/download/0.5/open-fonts.tar.bz2'
 
 class PostInstallCommand(install):
     def run(self):
