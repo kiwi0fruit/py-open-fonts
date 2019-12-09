@@ -33,12 +33,11 @@ version, conda = [read_pythonic_config(p.join(src_dir, 'openfonts', var + '.py')
 conda_version, build = version, ''  # was: version, '.4'
 tmp = 'tmp'
 spec = dict(
-    move=[('open-fonts', tmp)], version=conda_version, build=0,
-    hash_='dd71544edc2b3d18da0a9c97faf8e4da3a9086ceb6bac0171d5e47fc530a5612'
+    move=[(p.join('fonts', 'open-fonts'), tmp)], version=conda_version, build=0,
+    hash_='ea085ee4b7290a4b9f8fce8b07da49f9d79f53f87f83c55f74828d7e5a790916'
 )
 # spec = {}.get(platform.system(), spec)
-# URL = 'https://anaconda.org/conda-forge/open-fonts/{version}/download/noarch/open-fonts-{version}-{build}.tar.bz2'.format(**spec)
-URL = 'https://github.com/kiwi0fruit/open-fonts/releases/download/0.5/open-fonts.tar.bz2'
+URL = 'https://anaconda.org/conda-forge/open-fonts/{version}/download/noarch/open-fonts-{version}-{build}.tar.bz2'.format(**spec)
 
 class PostInstallCommand(install):
     def run(self):
@@ -138,7 +137,7 @@ setup(
     url='https://github.com/kiwi0fruit/py-open-fonts',
     author='kiwi0fruit',
     author_email='peter.zagubisalo@gmail.com',
-    license='Aggregate (Apache 2.0, SIL OFL 1.1, Public Domain, DejaVu Fonts)',
+    license='Aggregate (MIT, Apache 2.0, SIL OFL 1.1, Public Domain, DejaVu Fonts)',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Topic :: Software Development :: Build Tools',
