@@ -34,7 +34,7 @@ conda_version, build = version, ''  # was: version, '.4'
 tmp = 'tmp'
 spec = dict(
     move=[(p.join('fonts', 'open-fonts'), tmp)], version=conda_version, build=0,
-    hash_='ea085ee4b7290a4b9f8fce8b07da49f9d79f53f87f83c55f74828d7e5a790916'
+    hash_='xxx'
 )
 # spec = {}.get(platform.system(), spec)
 URL = 'https://anaconda.org/conda-forge/open-fonts/{version}/download/noarch/open-fonts-{version}-{build}.tar.bz2'.format(**spec)
@@ -137,12 +137,16 @@ setup(
     url='https://github.com/kiwi0fruit/py-open-fonts',
     author='kiwi0fruit',
     author_email='peter.zagubisalo@gmail.com',
-    license='Aggregate (MIT, Apache 2.0, SIL OFL 1.1, Public Domain, DejaVu Fonts)',
+    license='Aggregate (MIT, Apache-2.0, OFL-1.1, Public-Domain, DejaVu-Fonts)',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Topic :: Software Development :: Build Tools',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
+        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: Apache Software License',
+        'License :: OSI Approved :: SIL Open Font License 1.1 (OFL-1.1)',
+        "License :: Public Domain",
     ],
     packages=find_packages(),
     entry_points={

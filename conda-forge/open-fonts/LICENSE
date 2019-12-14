@@ -1,6 +1,7 @@
 This package contains several fonts with various free and open source
 licenses. See $PREFIX/fonts/open-fonts/LICENSE directory for details.
 
+* MIT License: CSS files,
 * Apache License 2.0: Open Sans, Robotization Mono, Roboto,
 * DejaVu Fonts License: DejaVu Sans, DejaVu Sans Mono,
 * Public Domain: Symbola 10.23,
