@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: xxx
+  sha256: ae1a91f71c2b76d9443bfcc86e1ff0fa6217e76b3ab514b1e08f3aa2efaf0472
   patches:
     - conda.patch
 
