@@ -24,7 +24,7 @@ about:
   license_file: LICENSE
   summary: "A collection of beautiful free and open source fonts"
   description: |
-    This package contains several fonts with various free and open source
+    This package is an aggregate of several fonts with various free and open source
     licenses. See $PREFIX/fonts/open-fonts/LICENSE directory for details.
     * MIT License - CSS files,
     * Apache License 2.0 - Open Sans, Robotization Mono, Roboto,
