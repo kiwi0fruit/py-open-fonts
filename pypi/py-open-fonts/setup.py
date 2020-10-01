@@ -34,7 +34,7 @@ conda_version, build = version, ''  # was: version, '.4'
 tmp = 'tmp'
 spec = dict(
     move=[(p.join('fonts', 'open-fonts'), tmp)], version=conda_version, build=0,
-    hash_='bb6b7b2f63eaacdac3cc72d3fd88d2b8f721ed87695d4563f64fe69d0683c845'
+    hash_='35cd565a8919e580ff0f6ba1360a9ef940b31a81f5be00f749fe289fadd5ab0a'
 )
 # spec = {}.get(platform.system(), spec)
 URL = 'https://anaconda.org/conda-forge/open-fonts/{version}/download/noarch/open-fonts-{version}-{build}.tar.bz2'.format(**spec)
