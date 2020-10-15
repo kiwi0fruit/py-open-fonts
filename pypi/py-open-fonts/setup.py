@@ -33,8 +33,8 @@ version, conda = [read_pythonic_config(p.join(src_dir, 'openfonts', var + '.py')
 conda_version, build = version, ''  # was: version, '.4'
 tmp = 'tmp'
 spec = dict(
-    move=[(p.join('fonts', 'open-fonts'), tmp)], version=conda_version, build=0,
-    hash_='35cd565a8919e580ff0f6ba1360a9ef940b31a81f5be00f749fe289fadd5ab0a'
+    move=[(p.join('fonts', 'open-fonts'), tmp)], version=conda_version, build=1,
+    hash_='4fd3bd4fd0c7447342ee9523f267f4ed867341c5f283806944c68cad1e2d940c'
 )
 # spec = {}.get(platform.system(), spec)
 URL = 'https://anaconda.org/conda-forge/open-fonts/{version}/download/noarch/open-fonts-{version}-{build}.tar.bz2'.format(**spec)
@@ -144,7 +144,7 @@ setup(
     url='https://github.com/kiwi0fruit/py-open-fonts',
     author='kiwi0fruit',
     author_email='peter.zagubisalo@gmail.com',
-    license='Aggregate (MIT, Apache-2.0, OFL-1.1, Public-Domain, DejaVu-Fonts)',
+    license='Aggregate (MIT, Apache-2.0, CC-BY-4.0, OFL-1.1, Public-Domain, DejaVu-Fonts)',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Topic :: Software Development :: Build Tools',
