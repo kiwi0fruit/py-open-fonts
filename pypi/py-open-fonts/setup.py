@@ -34,7 +34,7 @@ conda_version, build = version, ''  # was: version, '.4'
 tmp = 'tmp'
 spec = dict(
     move=[(p.join('fonts', 'open-fonts'), tmp)], version=conda_version, build=1,
-    hash_='4fd3bd4fd0c7447342ee9523f267f4ed867341c5f283806944c68cad1e2d940c'
+    hash_='91b3bffb7f33ea5fbc9fcf57b788565495af03e6cfd7951004cbd3cc63e239b7'
 )
 # spec = {}.get(platform.system(), spec)
 URL = 'https://anaconda.org/conda-forge/open-fonts/{version}/download/noarch/open-fonts-{version}-{build}.tar.bz2'.format(**spec)
@@ -68,7 +68,6 @@ def excract_tar_and_move_files(url, hash_, move, **kwargs):
     """
     Moves relative to the setup.py dir. Can download more packages
     if the target archive contains setup.py
-
     * ``url`` should be of the form z/name.x.y.gz
       (gz, bz2 or other suffix supported by the tarfile module).
     * ``move`` contains pairs of dirs where to move contents.
@@ -92,21 +91,22 @@ def excract_tar_and_move_files(url, hash_, move, **kwargs):
         req_text = '{url} --hash=sha256:{hash_}\n'.format(url=url, hash_=hash_)
         print(req_text, file=open(req_path, 'w', encoding='utf-8'))
 
-        proc = run([sys.executable, "-m", "pip", "download", "--require-hashes", "-b", temp_dir, "--no-clean", "-r", req_path],
-                   stdout=PIPE, stderr=PIPE, encoding='utf-8', env={**dict(os.environ), **dict(TMPDIR=temp_dir, TEMP=temp_dir)})
+        proc = run([sys.executable, "-m", "pip", "download", "--require-hashes", "--no-clean", "-r", req_path],
+                   stdout=PIPE, stderr=PIPE, encoding='utf-8', env={**dict(os.environ), **dict(TMPDIR=temp_dir, TEMP=temp_dir, TMP=temp_dir)})
 
         if proc.stderr is None:
             raise AssertionError('pip download behaviour changed. Downgrade pip or wait for bugfix.\n' + 'assert proc.stderr is not None')
         stderr = str(proc.stderr)
-        if not (('FileNotFoundError' in stderr) and ('setup.py' in stderr)):
-            raise AssertionError('pip download behaviour changed. Downgrade pip or wait for bugfix.\n' + stderr)
-        pip_tmp_dirs = os.listdir(temp_dir)
-        if len(pip_tmp_dirs) != 1:
-            raise AssertionError('pip download behaviour changed. Downgrade pip or wait for bugfix.\n' + 'assert len(pip_tmp_dirs) == 1')
-
         if 'sha256' in stderr.lower():
             raise AssertionError(stderr)
-        pip_tmp_dir = p.join(temp_dir, pip_tmp_dirs[0])
+        if not (('FileNotFoundError' in stderr) and ('setup.py' in stderr)):
+            raise AssertionError('pip download error:\n\n{}\n\nOr pip download behaviour changed. Downgrade pip or wait for bugfix in this case.'.format(stderr))
+        pip_tmp_dirs = os.listdir(temp_dir)
+        pip_build_dirs = [s for s in pip_tmp_dirs if 'build' in s]
+        if len(pip_build_dirs) != 1:
+            raise AssertionError('pip download behaviour changed. Downgrade pip or wait for bugfix.\n' + 'assert len(pip_build_dirs) == 1; pip_tmp_dirs == {}'.format(pip_tmp_dirs))
+
+        pip_tmp_dir = p.join(temp_dir, pip_build_dirs[0])
 
         for _, to in move:
             to = p.normpath(p.join(src_dir, to))
