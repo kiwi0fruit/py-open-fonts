@@ -1,19 +1,26 @@
 This package contains several fonts with various free and open source
 licenses. See $PREFIX/fonts/open-fonts/LICENSE directory for details.
 
-* Apache License 2.0: Open Sans, Robotization Mono, Roboto,
-* DejaVu Fonts License: DejaVu Sans, DejaVu Sans Mono,
-* Public Domain: Symbola 10.23,
-* SIL Open Font License 1.1:
-  IBM Plex Mono, Inconsolata Sugar, Lato, Linus Libertini, Noto Sans,
-  Noto Sans Mono, Noto Serif, Source Serif Pro, Sourcing Code Pro,
-  Sourcing Sans Pro, STIX Two Math, STIX Two Text, ST1X Two Math, Vollkorn.
+* MIT License - CSS files,
+* Apache License 2.0 - Cousine, Open Sans, Roboto, Roboto Mono, Robotization Mono, Twemoji Mozilla,
+* DejaVu Fonts License - DejaVu Sans, DejaVu Sans Mono, DejaVu Serif,
+* CC BY 4.0 - Twemoji Mozilla,
+* Symbola Public Domain - Symbola 10.23,
+* SIL Open Font License 1.1 -
+  Amiri, Catamaran, David Libre, IBM Plex Mono, Halant, Inconsolata Sugar, Kawkab Mono, Lato,
+  Libertinus Math, Libertinus Serif, Linus Libertinus, Linus Libertinus Math, Noto Naskh Arabic,
+  Noto Nastaliq Urdu, Noto Sans, Noto Sans Arabic, Noto Sans Armenian, Noto Sans Bengali,
+  Noto Sans Georgian, Noto Sans Devanagari, Noto Sans Hebrew, Noto Sans Mono, Noto Sans Tamil,
+  Noto Sans Thai, Noto Serif, Noto Serif Armenian, Noto Serif Bengali, Noto Serif Georgian,
+  Noto Serif Devanagari, Noto Serif Tamil, Noto Serif Thai, Source Code Pro, Source Sans Pro,
+  Source Serif Pro, Sourcing Code Pro, Sourcing Sans Pro, STIX Two Math, STIX Two Text,
+  Vollkorn, XITS, XITS Math, XITS One Math, XITS One Text, XITS Two Math, XITS Two Text.
 
 The license of the Python source code (that is agnostic to the fonts) is:
 
 MIT License
 
-Copyright (c) 2019 Peter Zagubisalo
+Copyright (c) 2020 Peter Zagubisalo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
